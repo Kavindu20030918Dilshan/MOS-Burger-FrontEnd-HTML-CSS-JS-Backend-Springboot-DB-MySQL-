@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body style="background-color: #444041" onload="loadCategories()">
+  <body style="background-color: #444041" onload="loadCategories()+loadFood()">
     <!-- navbar  -->
     <div class="container-fluid">
       <div class="row">
@@ -181,242 +181,64 @@
         </div>
       </div>
       <div class="row table-responsive">
-        <table class="table align-middle table-striped">
+        <table class="table align-middle table-striped" id="tblFood">
           <thead class="bg-light">
-            <tr>
-              <th>Food ID</th>
-              <th>Food Name</th>
-              <th>Food Category</th>
-              <th>Price</th>
-              <th>Expire Date</th>
-              <th>Status</th>
-              <th>Update</th>
-              <th>Remove</th>
-            </tr>
+            
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <p class="fw-normal mb-1">001</p>
-              </td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img
-                    src="/FrontEnd/assets/img/burger.jpg"
-                    alt=""
-                    style="width: 100px; height: 100px"
-                    class="rounded-circle"
-                  />
-                  <div class="ms-3">
-                    <p class="fw-bold mb-1">John Doe</p>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">Burger</p>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">Rs.1200</p>
-              </td>
 
-              <td>
-                <span
-                  class="badge badge-success rounded-pill d-inline text-bg-dark"
-                  >2025/04/03</span
-                >
-              </td>
-              <td>
-                <p class="fw-normal mb-1 fw-bold">Good</p>
-              </td>
-              <td>
-                <button type="button" class="btn btn-success col-10">
-                  Update
-                </button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-danger col-10">
-                  Remove
-                </button>
-              </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="fw-normal mb-1">001</p>
-                  </td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img
-                  src="/FrontEnd/assets/img/burger.jpg"
-                    alt=""
-                    style="width: 100px; height: 100px"
-                    class="rounded-circle"
-                  />
-                  <div class="ms-3">
-                    <p class="fw-bold mb-1">John Doe</p>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">Burger</p>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">Rs.1200</p>
-              </td>
-              <td>
-                <span
-                  class="badge badge-success rounded-pill d-inline text-bg-dark"
-                  >2025/04/03</span
-                >
-              </td>
-              <td>
-                <p class="fw-normal mb-1 fw-bold">Good</p>
-              </td>
-              <td>
-                <button type="button" class="btn btn-success col-10">
-                  Update
-                </button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-danger col-10">
-                  Remove
-                </button>
-              </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="fw-normal mb-1">001</p>
-                  </td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img
-                  src="/FrontEnd/assets/img/burger.jpg"
-                    alt=""
-                    style="width: 100px; height: 100px"
-                    class="rounded-circle"
-                  />
-                  <div class="ms-3">
-                    <p class="fw-bold mb-1">John Doe</p>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">Burger</p>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">Rs.1200</p>
-              </td>
-              <td>
-                <span
-                  class="badge badge-success rounded-pill d-inline text-bg-dark"
-                  >2025/04/03</span
-                >
-              </td>
-              <td>
-                <p class="fw-normal mb-1 fw-bold">Good</p>
-              </td>
-              <td>
-                <button type="button" class="btn btn-success col-10">
-                  Update
-                </button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-danger col-10">
-                  Remove
-                </button>
-              </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="fw-normal mb-1">001</p>
-                  </td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img
-                  src="/FrontEnd/assets/img/burger.jpg"
-                    alt=""
-                    style="width: 100px; height: 100px"
-                    class="rounded-circle"
-                  />
-                  <div class="ms-3">
-                    <p class="fw-bold mb-1">John Doe</p>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">Burger</p>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">Rs.1200</p>
-              </td>
-              <td>
-                <span
-                  class="badge badge-success rounded-pill d-inline text-bg-dark"
-                  >2025/04/03</span
-                >
-              </td>
-              <td>
-                <p class="fw-normal mb-1 fw-bold">Good</p>
-              </td>
-              <td>
-                <button type="button" class="btn btn-success col-10">
-                  Update
-                </button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-danger col-10">
-                  Remove
-                </button>
-              </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="fw-normal mb-1">001</p>
-                  </td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img
-                  src="/FrontEnd/assets/img/burger.jpg"
-                    alt=""
-                    style="width: 100px; height: 100px"
-                    class="rounded-circle"
-                  />
-                  <div class="ms-3">
-                    <p class="fw-bold mb-1">John Doe</p>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">Burger</p>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">Rs.1200</p>
-              </td>
-              <td>
-                <span
-                  class="badge badge-success rounded-pill d-inline text-bg-dark"
-                  >2025/04/03</span
-                >
-              </td>
-              <td>
-                <p class="fw-normal mb-1 fw-bold">Good</p>
-              </td>
-              <td>
-                <button type="button" class="btn btn-success col-10">
-                  Update
-                </button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-danger col-10">
-                  Remove
-                </button>
-              </td>
-            </tr>
+
           </tbody>
         </table>
       </div>
     </div>
 
     <!-- body  -->
+
+        <!-- modal 1  -->
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel1">Update Food</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">Customer ID:</label>
+                      <input type="text" class="form-control" id="foodItemId" disabled>
+                  </div>
+                  <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">Food Name:</label>
+                      <input type="text" class="form-control" id="foodItemName">
+                  </div>
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Food Catrgory:</label>
+                    <input type="text" class="form-control" id="foodItemCategory">
+                  </div>
+                  <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">Price:</label>
+                      <input type="text" class="form-control" id="foodItemPrice">
+                  </div>
+                  <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">Expire Date:</label>
+                      <input type="text" class="form-control" id="foodItemExpireDate">
+                  </div>
+                  <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">Status:</label>
+                      <input type="text" class="form-control" id="foodItemStatus">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="updateFood()">Update</button>
+              </div>
+            </div>
+          </div>
+       </div>
+      <!-- modal 1 -->
 
     <script src="/FrontEnd/assets/js/storeMgt.js"></script>
     <script
