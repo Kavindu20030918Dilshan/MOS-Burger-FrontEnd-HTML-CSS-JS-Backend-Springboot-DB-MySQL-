@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mos_burger_db
+    username: root
+    password: Kavindu@dilshan
+
+  jpa:
+    hibernate:
+      ddl-auto: update

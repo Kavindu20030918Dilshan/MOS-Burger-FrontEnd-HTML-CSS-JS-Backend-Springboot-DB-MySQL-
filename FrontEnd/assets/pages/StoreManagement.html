@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOS Burgers | Store Management</title>
+    <link rel="icon" href="/FrontEnd/assets/img/burgerIcon.png" />
+    <link rel="stylesheet" href="/FrontEnd/assets/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: #444041" onload="loadCategories()">
+    <!-- navbar  -->
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand fw-bolder" href="Dashboard.html"
+              >MOS Burger POS System</a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item ms-4">
+                  <a
+                    class="nav-link active fs-5 fw-medium"
+                    aria-current="page"
+                    href="Dashboard.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item ms-4">
+                  <a class="nav-link fs-5 fw-medium" href="StoreManagement.html"
+                    >Store Management</a
+                  >
+                </li>
+                <li class="nav-item ms-4">
+                  <a class="nav-link fs-5 fw-medium" href="OrderManagement.html"
+                    >Order Management</a
+                  >
+                </li>
+                <li class="nav-item ms-4">
+                  <a
+                    class="nav-link fs-5 fw-medium"
+                    href="CustomerManagement.html"
+                    >Customer Management</a
+                  >
+                </li>
+                <li class="nav-item ms-4">
+                  <a class="nav-link fs-5 fw-medium" href="OrderHistory.html"
+                    >Order History</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- navbar  -->
+
+    <!-- body  -->
+
+    <div class="container mt-5 mb-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-6 col-md-6 col-sm-12 border-white border border-3 mb-3 mt">
+          <form>
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+              <div class="d-flex justify-content-center mb-2 mt-2">
+                <h3 class="text-white">Add New Food</h3>
+              </div>
+              <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                  <input type="text" id="foodName" class="form-control" placeholder="Food Name" />
+                  <label
+                    class="form-label text-white fw-bold"
+                    for="form3Example1"
+                    >Food name</label
+                  >
+                </div>
+              </div>
+              <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                  <input type="text" id="foodPrice" class="form-control" placeholder="Price" />
+                  <label
+                    class="form-label text-white fw-bold"
+                    for="form3Example2"
+                    >Price</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="email" id="expireDate" class="form-control" placeholder="Expire Date" />
+              <label class="form-label text-white fw-bold" for="form3Example3"
+                >Expire Date</label
+              >
+            </div>
+
+            <div class="row mb-4">
+              <div class="dropdown d-flex justify-content-center">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Select Food Status
+                </button>
+                <ul class="dropdown-menu" >
+                  <li id="foodStatus"><a class="dropdown-item" href="#">Good</a></li>
+                  <li id="foodStatus"><a class="dropdown-item" href="#">Expired</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="dropdown d-flex justify-content-center">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Select Food Category
+                </button>
+                <ul class="dropdown-menu" id="foodCategoryList">
+                 
+                </ul>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="d-flex justify-content-center">
+                <button
+                  data-mdb-ripple-init
+                  type="button"
+                  class="btn btn-primary btn-block mb-4 d-flex justify-content-center col-5 text-center"
+                  onclick="addFood()"
+                >
+                  Add Food
+                </button>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button
+                  data-mdb-ripple-init
+                  type="button"
+                  class="btn btn-secondary text-dark fw-bold btn-block mb-4 d-flex justify-content-center col-5 text-center"
+                  onclick="clearForm()"
+                >
+                  Clear
+                </button>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button
+                  data-mdb-ripple-init
+                  type="button"
+                  class="btn btn-info text-dark fw-bold btn-block mb-4 d-flex justify-content-center col-5 text-center"
+                >
+                  Get Food Item Report
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row table-responsive">
+        <table class="table align-middle table-striped">
+          <thead class="bg-light">
+            <tr>
+              <th>Food ID</th>
+              <th>Food Name</th>
+              <th>Food Category</th>
+              <th>Price</th>
+              <th>Expire Date</th>
+              <th>Status</th>
+              <th>Update</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p class="fw-normal mb-1">001</p>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img
+                    src="/FrontEnd/assets/img/burger.jpg"
+                    alt=""
+                    style="width: 100px; height: 100px"
+                    class="rounded-circle"
+                  />
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">John Doe</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">Burger</p>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">Rs.1200</p>
+              </td>
+
+              <td>
+                <span
+                  class="badge badge-success rounded-pill d-inline text-bg-dark"
+                  >2025/04/03</span
+                >
+              </td>
+              <td>
+                <p class="fw-normal mb-1 fw-bold">Good</p>
+              </td>
+              <td>
+                <button type="button" class="btn btn-success col-10">
+                  Update
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger col-10">
+                  Remove
+                </button>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="fw-normal mb-1">001</p>
+                  </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img
+                  src="/FrontEnd/assets/img/burger.jpg"
+                    alt=""
+                    style="width: 100px; height: 100px"
+                    class="rounded-circle"
+                  />
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">John Doe</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">Burger</p>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">Rs.1200</p>
+              </td>
+              <td>
+                <span
+                  class="badge badge-success rounded-pill d-inline text-bg-dark"
+                  >2025/04/03</span
+                >
+              </td>
+              <td>
+                <p class="fw-normal mb-1 fw-bold">Good</p>
+              </td>
+              <td>
+                <button type="button" class="btn btn-success col-10">
+                  Update
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger col-10">
+                  Remove
+                </button>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="fw-normal mb-1">001</p>
+                  </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img
+                  src="/FrontEnd/assets/img/burger.jpg"
+                    alt=""
+                    style="width: 100px; height: 100px"
+                    class="rounded-circle"
+                  />
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">John Doe</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">Burger</p>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">Rs.1200</p>
+              </td>
+              <td>
+                <span
+                  class="badge badge-success rounded-pill d-inline text-bg-dark"
+                  >2025/04/03</span
+                >
+              </td>
+              <td>
+                <p class="fw-normal mb-1 fw-bold">Good</p>
+              </td>
+              <td>
+                <button type="button" class="btn btn-success col-10">
+                  Update
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger col-10">
+                  Remove
+                </button>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="fw-normal mb-1">001</p>
+                  </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img
+                  src="/FrontEnd/assets/img/burger.jpg"
+                    alt=""
+                    style="width: 100px; height: 100px"
+                    class="rounded-circle"
+                  />
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">John Doe</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">Burger</p>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">Rs.1200</p>
+              </td>
+              <td>
+                <span
+                  class="badge badge-success rounded-pill d-inline text-bg-dark"
+                  >2025/04/03</span
+                >
+              </td>
+              <td>
+                <p class="fw-normal mb-1 fw-bold">Good</p>
+              </td>
+              <td>
+                <button type="button" class="btn btn-success col-10">
+                  Update
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger col-10">
+                  Remove
+                </button>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="fw-normal mb-1">001</p>
+                  </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img
+                  src="/FrontEnd/assets/img/burger.jpg"
+                    alt=""
+                    style="width: 100px; height: 100px"
+                    class="rounded-circle"
+                  />
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1">John Doe</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">Burger</p>
+              </td>
+              <td>
+                <p class="fw-normal mb-1">Rs.1200</p>
+              </td>
+              <td>
+                <span
+                  class="badge badge-success rounded-pill d-inline text-bg-dark"
+                  >2025/04/03</span
+                >
+              </td>
+              <td>
+                <p class="fw-normal mb-1 fw-bold">Good</p>
+              </td>
+              <td>
+                <button type="button" class="btn btn-success col-10">
+                  Update
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger col-10">
+                  Remove
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- body  -->
+
+    <script src="/FrontEnd/assets/js/storeMgt.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
